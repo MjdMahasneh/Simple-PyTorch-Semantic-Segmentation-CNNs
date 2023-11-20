@@ -77,13 +77,20 @@ pip install torch matplotlib numpy Pillow tqdm torchvision
 ```
 
 
-## Training
+## Training and prediction:
 
 Modify the `config.py` file as needed, including dataset paths, then Run train.py directly or Execute the training script using the following command:
 
 ```bash
 python train.py
 ```
+
+Modify the attributes of the Args class in `predict.py` file as needed, (including path for testing images, model weights, and prediction network parameters), then Run predict.py directly or Execute the prediction script using the following command:
+
+```bash
+python predict.py
+```
+
 
 ## Contributing
 
