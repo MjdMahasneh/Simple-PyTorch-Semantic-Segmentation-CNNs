@@ -1,5 +1,5 @@
 # Simple-PyTorch-implementation-of-Semantic-Segmentation-CNNs
-PyTorch Implementation of Semantic Segmentation CNNs: This repository features key architectures (from scratch) like UNet, DeepLabv3+, SegNet, FCN, and PSPNet. It's crafted to provide a solid foundation for Semantic Segmentation tasks using PyTorch.
+PyTorch Implementation of Semantic Segmentation CNNs: This repository features key architectures (from scratch) like **UNet**, **DeepLabv3+**, **SegNet**, **FCN**, and **PSPNet**. It's crafted to provide a solid foundation for Semantic Segmentation tasks using PyTorch.
 
 ## Supported Architectures and Backbones
 
@@ -68,6 +68,12 @@ root:
 ```
 
 This structure includes separate subfolders for training and validation data, with further subdivisions for images and their corresponding masks.
+
+When preparing your dataset, ensure that the images are in `.jpg` and masks are in `.png` format and are of the same size as their corresponding images. Each RGB pixel in the mask should represent a class label as an integer. For instance, in a dataset with 3 classes, use [0,0,0], [1,1,1], and [2,2,2] to label these classes. 
+
+For a better understanding of the expected data structure and mask format, please refer to the mock dataset included in this repository. The mock dataset serves as a practical example, demonstrating how your data and masks should be organized and formatted, use ./mock_dataset/inspect_date.py to visualize masks and images.
+
+Edit `utils/data_loading.py` to modify behavior. 
 
 
 
