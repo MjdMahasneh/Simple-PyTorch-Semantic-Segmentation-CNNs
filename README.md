@@ -55,7 +55,7 @@ PyTorch Implementation of Semantic Segmentation CNNs: This repository features k
 A mock dataset is included in the repository for demonstration and testing purposes. Note that this dataset is not aimed to be used for training/testing, but rather for setting up and debugging for the first run, a convenience.
 
 Replace the mock dataset with your own dataset as needed. The data loader accepts images of arbitrary dimensions and resizes them to the target size. Ensure that your dataset follows the below directory structure for optimal compatibility with the data loader:
-
+```
 root:
 │
 ├── train
@@ -65,7 +65,7 @@ root:
 ├── val
 │ ├── images
 │ └── masks
-
+```
 
 This structure includes separate subfolders for training and validation data, with further subdivisions for images and their corresponding masks.
 
