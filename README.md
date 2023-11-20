@@ -87,6 +87,7 @@ To run this project, you need to have the following packages installed:
 - `Pillow`
 - `tqdm`
 - `torchvision`
+- `opencv-python`
 
 You can install them by running the following command:
 
