@@ -144,6 +144,21 @@ then Run train.py directly or Execute the training script using the following co
 python train.py
 ```
 
+Note compatibility when creating segmentation models:
+
+| Architecture | Compatible Backbones |
+|--------------|----------------------|
+| FCN Variants |  |
+| - FCN32s     | VGG11, VGG13, VGG16, VGG19 |
+| - FCN16s     | VGG11, VGG13, VGG16, VGG19 |
+| - FCN8s      | VGG11, VGG13, VGG16, VGG19 |
+| - FCNs       | VGG11, VGG13, VGG16, VGG19 |
+| DeepLabv3+   | ResNet18, ResNet34, ResNet50, ResNet101 |
+| PSPNet       | ResNet18, ResNet34, ResNet50, ResNet101 |
+| UNet         | None (No backbone required) |
+| SegNet       | None (No backbone required) |
+
+
 ## Prediction:
 Modify the attributes of the Args class in `predict.py` file as needed, (including path for testing images, model weights, and prediction network parameters), then Run predict.py directly or Execute the prediction script using the following command:
 
