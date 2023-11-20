@@ -37,12 +37,18 @@ PyTorch Implementation of Semantic Segmentation CNNs: This repository features k
 
 ## Loss Functions
 
-- **Cross Entropy (variations)**: Standard CE, CE with class weights, and Focal Loss.
-- **Dice Loss**: Standalone or in conjunction with one of the CE variations (as a Joint Loss).
+- **Cross Entropy (variations)**:
+  -  Standard CE
+  - CE with class weights
+  - Focal Loss
+- **Dice Loss**
+- **Joint loss**: Conjunction of Dice loss with one of the CE variations (as a Joint Loss). 
 
 ## Evaluation Metrics
 
-- Models are evaluated using either Dice Coefficient or Intersection over Union (IoU) score.
+- Models are evaluated using:
+  - **Dice** Coefficient
+  - Intersection over Union **(IoU)** score.
 
 ## Dataset
 
@@ -51,13 +57,24 @@ A mock dataset is included in the repository for demonstration and testing purpo
 
 ## Requirements
 
-To run this repository, you will need to install certain dependencies. If you are using a conda environment, you can find out your environment's requirements using the command `conda list`. This will list all the packages and their versions installed in your current conda environment.
+To run this project, you need to have the following packages installed:
 
-## How to Run
+- `torch`
+- `matplotlib`
+- `numpy`
+- `Pillow`
+- `tqdm`
+- `torchvision`
 
-1. **Install Requirements**: Install the necessary dependencies.
-   ```bash
-   pip install -r requirements.txt
+You can install them by running the following command:
+
+```bash
+pip install -r requirements.txt
+```
+Alternatively, you can manually install each package using:
+```bash
+pip install torch matplotlib numpy Pillow tqdm torchvision
+```
 
 
 ## Training
