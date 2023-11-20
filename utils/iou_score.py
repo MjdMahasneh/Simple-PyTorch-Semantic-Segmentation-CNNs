@@ -1,9 +1,7 @@
 import torch
-# from torch import Tensor
-
 
 def iou_score(output, target):
-    smooth = 1e-5 ## a small constant added to the numerator and denominator) is a common practice to prevent division by zero in cases where the intersection and union might be zero, leading to an undefined IoU value
+    smooth = 1e-5 ## a small constant added to the numerator and denominator) is a common practice to prevent division by zero in cases where the intersection and union might be zero
 
     if torch.is_tensor(output):
         output = torch.sigmoid(output).data.cpu().numpy()

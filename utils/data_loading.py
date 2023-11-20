@@ -38,49 +38,22 @@ def unique_mask_values(idx, mask_dir, mask_suffix):
 
 
 class BasicDataset(Dataset):
-    # def __init__(self, images_dir: str, mask_dir: str, scale: float = 1.0, mask_suffix: str = '', target_size : tuple = (None, None), stage: str = 'unknown'):
-    def __init__(self, images_dir: str, mask_dir: str, mask_suffix: str = '', target_size : tuple = (None, None), stage: str = 'unknown'):
+
+    def __init__(self, images_dir: str, mask_dir: str, mask_suffix: str = '', target_size: tuple = (None, None),
+                 stage: str = 'unknown'):
 
         self.images_dir = Path(images_dir)
         self.mask_dir = Path(mask_dir)
-        # assert 0 < scale <= 1, 'Scale must be between 0 and 1'
-        # self.scale = scale
+
         self.mask_suffix = mask_suffix
-        self.target_size = target_size ## (height, width)
+        self.target_size = target_size  ## (height, width)
 
+        self.ids = [p.relative_to(self.images_dir).as_posix()[:-4] for p in self.images_dir.rglob('*.jpg')]
 
-        # self.ids = [splitext(file)[0] for file in listdir(images_dir) if isfile(join(images_dir, file)) and not file.startswith('.')]
-        self.ids = [p.relative_to(self.images_dir).as_posix()[:-4] for p in self.images_dir.rglob('*.jpg')] ## as_posix() converts \ to / in windows
-        # ## collect all files ending with .jpg using os.walk
-        # self.ids_2 = []
-        # for root, dirs, files in os.walk(images_dir):
-        #     for file in files:
-        #         if file.endswith(".jpg"):
-        #              # self.ids.append(os.path.join(root, file))
-        #              ## append relative path to image_dir
-        #              self.ids_2.append(os.path.relpath(os.path.join(root, file), images_dir))
         self.ids = list(set(self.ids))
-
-        ## sort and check if ids and ids_2 are the same
-        # self.ids.sort()
-        # self.ids_2.sort()
-        #
-        # print('self.ids:', self.ids)
-        # print('-'*50)
-        # print('self.ids_2:', self.ids_2)
-        #
-        # assert self.ids == self.ids_2, 'ids and ids_2 are not the same'
-        #
-
-
 
         if not self.ids:
             raise RuntimeError(f'No input file found in {images_dir}, make sure you put your images there')
-
-
-        # raise Exception('stop here!!')
-
-
 
         logging.info(f'Creating {stage} dataset with {len(self.ids)} examples')
         logging.info('Scanning mask files to determine unique values in {stage} dataset')
@@ -97,13 +70,7 @@ class BasicDataset(Dataset):
         return len(self.ids)
 
     @staticmethod
-    # def preprocess(mask_values, pil_img, scale, is_mask, target_h=512, target_w=512):
-    # def preprocess(mask_values, pil_img, scale, is_mask):
     def preprocess(mask_values, pil_img, is_mask, target_h=512, target_w=512):
-        # w, h = pil_img.size
-        # newW, newH = int(scale * w), int(scale * h)
-        # assert newW > 0 and newH > 0, 'Scale is too small, resized images would have no pixel'
-        # pil_img = pil_img.resize((newW, newH), resample=Image.NEAREST if is_mask else Image.BICUBIC)
 
         assert target_h > 0 and target_w > 0, 'Scale is too small, resized images would have no pixel'
         assert target_h != None and target_w != None, 'target_h and target_w must be specified'
@@ -145,36 +112,12 @@ class BasicDataset(Dataset):
         assert img.size == mask.size, \
             f'Image and mask {name} should be the same size, but are {img.size} and {mask.size}'
 
-        # img = self.preprocess(self.mask_values, img, self.scale, is_mask=False, target_h=self.target_size[0], target_w=self.target_size[1])
-        # mask = self.preprocess(self.mask_values, mask, self.scale, is_mask=True, target_h=self.target_size[0], target_w=self.target_size[1])
-        img = self.preprocess(self.mask_values, img, is_mask=False, target_h=self.target_size[0], target_w=self.target_size[1])
-        mask = self.preprocess(self.mask_values, mask, is_mask=True, target_h=self.target_size[0], target_w=self.target_size[1])
-
-        # # visualize image and mask side by side
-        # plt.subplot(1, 2, 1)
-        # # plt.imshow(img[1][:, :])
-        # plt.imshow(img.transpose(1, 2, 0))
-        # plt.title('img')
-        # plt.axis('off')
-        # plt.subplot(1, 2, 2)
-        # plt.imshow(mask)
-        # plt.title('mask')
-        # plt.axis('off')
-        # plt.show()
-
-        # raise Exception('stop here!!')
-
-
+        img = self.preprocess(self.mask_values, img, is_mask=False, target_h=self.target_size[0],
+                              target_w=self.target_size[1])
+        mask = self.preprocess(self.mask_values, mask, is_mask=True, target_h=self.target_size[0],
+                               target_w=self.target_size[1])
 
         return {
             'image': torch.as_tensor(img.copy()).float().contiguous(),
             'mask': torch.as_tensor(mask.copy()).long().contiguous()
         }
-
-
-# class CarvanaDataset(BasicDataset):
-#
-#     '''Carvana dataset class for loading images and masks inherits from BasicDataset'''
-#
-#     def __init__(self, images_dir, mask_dir, scale=1):
-#         super().__init__(images_dir, mask_dir, scale, mask_suffix='_mask')
