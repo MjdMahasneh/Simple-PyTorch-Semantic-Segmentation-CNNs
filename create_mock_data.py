@@ -29,7 +29,7 @@ def create_mock_dataset(base_dir, num_images=10, image_size=(256, 256), more_cir
         mask_draw = ImageDraw.Draw(mask)
 
         # Add shapes
-        num_shapes = np.random.randint(1, 6)  # Random number of shapes
+        num_shapes = np.random.randint(1, 15)  # Random number of shapes
         if more_circles_and_squares:
             num_shapes += 2  # Increase the number of shapes
 
