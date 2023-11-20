@@ -3,32 +3,32 @@ PyTorch Implementation of Semantic Segmentation CNNs: This repository features k
 
 ## Supported Architectures and Backbones
 
-- **DeepLabv3+**: Support for ResNet backbones (ResNet18, ResNet34, ResNet50, and ResNet101).
-- **PSPNet**: Support for ResNet backbones (ResNet18, ResNet34, ResNet50, and ResNet101).
-- **FCN**: Support for VGG backbones (VGG11, VGG13, VGG16, and VGG19).
-- **UNet**: No backbone needed.
-- **SegNet**: No backbone needed.
+- **[UNet](https://arxiv.org/abs/1505.04597)**: No backbone needed.
+- **[DeepLabv3+](https://arxiv.org/abs/1802.02611v3)**: Support for ResNet backbones (ResNet18, ResNet34, ResNet50, and ResNet101).
+- **[PSPNet](https://arxiv.org/abs/1612.01105)**: Support for ResNet backbones (ResNet18, ResNet34, ResNet50, and ResNet101).
+- **[FCN](https://arxiv.org/abs/1411.4038)**: Support for VGG backbones (VGG11, VGG13, VGG16, and VGG19).
+- **[SegNet](https://arxiv.org/abs/1511.00561)**: No backbone needed.
 
 
 
-<img src="materials/unet.png" alt="UNet Architecture" width="200"/>
-<img src="materials/deeplabv3+.png" alt="DeepLabv3+ Architecture" width="200"/>
-<img src="materials/segnet.png" alt="SegNet Architecture" width="200"/>
-<img src="materials/fcn.png" alt="FCN Architecture" width="200"/>
-<img src="materials/pspnet.png" alt="PSPNet Architecture" width="200"/>
-![UNet Architecture](materials/unet.png)
-![DeepLabv3+ Architecture](materials/deeplabv3plus_architecture.png)
-![SegNet Architecture](materials/segnet_architecture.png)
-![FCN Architecture](materials/fcn_architecture.png)
-![PSPNet Architecture](materials/pspnet_architecture.png)
+<table>
+  <tr>
+    <td><img src="material/unet.png" alt="UNet Architecture" width="400"/><br>UNet Architecture</td>
+    <td><img src="material/deeplabv3+.png" alt="DeepLabv3+ Architecture" width="400"/><br>DeepLabv3+ Architecture</td>
+  </tr>
+  <tr>
+    <td><img src="material/segnet.png" alt="SegNet Architecture" width="400"/><br>SegNet Architecture</td>
+    <td><img src="material/fcn.png" alt="FCN Architecture" width="400"/><br>FCN Architecture</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="material/pspnet.jpg" alt="PSPNet Architecture" width="800"/><br>PSPNet Architecture</td>
+  </tr>
+</table>
 
-## References
 
-- [UNet](https://arxiv.org/abs/1505.04597)
-- [FCN](https://arxiv.org/abs/1411.4038)
-- [DeepLabv3+](https://arxiv.org/abs/1802.02611v3)
-- [PSPNet](https://arxiv.org/abs/1612.01105)
-- [SegNet](https://arxiv.org/abs/1511.00561)
+
+
+
 
 ## Optimizers and Learning Rate Schedulers
 
@@ -37,8 +37,8 @@ PyTorch Implementation of Semantic Segmentation CNNs: This repository features k
 
 ## Loss Functions
 
-- **Cross Entropy**: Standard CE, CE with class weights, and Focal Loss.
-- **Dice Loss**: Standalone or in conjunction with one of the CE variations (Joint Loss).
+- **Cross Entropy (variations)**: Standard CE, CE with class weights, and Focal Loss.
+- **Dice Loss**: Standalone or in conjunction with one of the CE variations (as a Joint Loss).
 
 ## Evaluation Metrics
 
@@ -48,12 +48,6 @@ PyTorch Implementation of Semantic Segmentation CNNs: This repository features k
 
 A mock dataset is included in the repository for demonstration and testing purposes. Note that this dataset is not aimed to be used for training/testing, but rather for setting up and debugging for the first run, a convenience.
 
-## Network Flowcharts and References
-
-- Flowcharts depicting the architecture of each network are provided.
-- References to the original papers for each architecture are included.
-
-![Architecture Flowchart](temp_name.png)
 
 ## Requirements
 
@@ -65,20 +59,14 @@ To run this repository, you will need to install certain dependencies. If you ar
    ```bash
    pip install -r requirements.txt
 
-## Configuration
 
-Modify the `config.py` file as needed, including dataset paths.
+## Training
 
-## Run Training
-
-Execute the training script using the following command:
+Modify the `config.py` file as needed, including dataset paths, then Run train.py directly or Execute the training script using the following command:
 
 ```bash
 python train.py
 ```
-
-
-
 
 ## Contributing
 
