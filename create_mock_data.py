@@ -37,10 +37,10 @@ def create_mock_dataset(base_dir, num_images=10, image_size=(256, 256)):
 
             if shape_type == 'circle':
                 draw.ellipse([x1, y1, x2, y2], fill=random_color())
-                mask_draw.ellipse([x1, y1, x2, y2], fill=50)  # Class 1
+                mask_draw.ellipse([x1, y1, x2, y2], fill=1)  # Class 1
             elif shape_type == 'rectangle':
                 draw.rectangle([x1, y1, x2, y2], fill=random_color())
-                mask_draw.rectangle([x1, y1, x2, y2], fill=100)  # Class 2
+                mask_draw.rectangle([x1, y1, x2, y2], fill=2)  # Class 2
             # elif shape_type == 'triangle':
             #     draw.polygon([(x1, y1), (x2, y2), (x1, y2)], fill=random_color())
             #     mask_draw.polygon([(x1, y1), (x2, y2), (x1, y2)], fill=3)
@@ -73,4 +73,4 @@ def create_mock_dataset(base_dir, num_images=10, image_size=(256, 256)):
             create_image_and_mask(i, os.path.join(base_dir, 'val'))
 
 # Usage
-create_mock_dataset('./mock_dataset', num_images=50, image_size=(256, 256))
+create_mock_dataset('./mock_dataset', num_images=1000, image_size=(256, 256))
