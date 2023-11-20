@@ -11,6 +11,27 @@ class Config:
         args = Config()
         print(vars(args))
         print(args.epochs)
+
+    Available Architectures and Compatible Backbones:
+
+    1. FCN Variants (Fully Convolutional Networks):
+       - FCN32s: Compatible with VGG11, VGG13, VGG16, VGG19
+       - FCN16s: Compatible with VGG11, VGG13, VGG16, VGG19
+       - FCN8s: Compatible with VGG11, VGG13, VGG16, VGG19
+       - FCNs: Compatible with VGG11, VGG13, VGG16, VGG19
+
+    2. DeepLabv3+:
+       - Compatible with ResNet18, ResNet34, ResNet50, ResNet101
+
+    3. PSPNet (Pyramid Scene Parsing Network):
+       - Compatible with ResNet18, ResNet34, ResNet50, ResNet101
+
+    4. UNet:
+       - Takes None. Does not require a backbone.
+
+    5. SegNet:
+       - Takes None. Does not require a backbone.
+
     """
 
     def __init__(self):
@@ -41,28 +62,6 @@ class Config:
         self.val_images_dir = Path(os.path.join(self.dir_root, 'val/images'))
         self.val_mask_dir = Path(os.path.join(self.dir_root, 'val/masks'))
         self.dir_checkpoint = Path('./checkpoints/')  # Directory for saving checkpoints
-
-        """
-        Available Architectures and Compatible Backbones:
-
-        1. FCN Variants (Fully Convolutional Networks):
-           - FCN32s: Compatible with VGG11, VGG13, VGG16, VGG19
-           - FCN16s: Compatible with VGG11, VGG13, VGG16, VGG19
-           - FCN8s: Compatible with VGG11, VGG13, VGG16, VGG19
-           - FCNs: Compatible with VGG11, VGG13, VGG16, VGG19
-
-        2. DeepLabv3+:
-           - Compatible with ResNet18, ResNet34, ResNet50, ResNet101
-
-        3. PSPNet (Pyramid Scene Parsing Network):
-           - Compatible with ResNet18, ResNet34, ResNet50, ResNet101
-
-        4. UNet:
-           - Takes None. Does not require a backbone.
-
-        5. SegNet:
-           - Takes None. Does not require a backbone.
-        """
 
         # CNN architecture and backbone
         self.cnn_arch = 'deeplabv3+'  # CNN architecture ('UNet', 'DeepLab', 'SegNet', 'PSPNet', 'FCN')
