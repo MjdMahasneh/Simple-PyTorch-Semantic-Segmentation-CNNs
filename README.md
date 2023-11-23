@@ -180,7 +180,7 @@ Contributions to this repository are welcome. Feel free to submit a pull request
 
 ## License
 
-This repository is a collection of various Semantic Segmentation CNN implementations, each potentially under its own license. We respect the original licenses of all included works. Users are advised to refer to the respective original sources (linked in the References section) for licensing information specific to each implementation.
+This repository is a collection of various Semantic Segmentation CNN implementations, each potentially under its own license. We respect the original licenses of all included works. Users are advised to refer to the respective original sources for licensing information specific to each implementation.
 
 For any original contributions made in this repository, they are provided under the the terms of the MIT license.
 
