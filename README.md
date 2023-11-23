@@ -166,7 +166,12 @@ Modify the attributes of the Args class in `predict.py` file as needed, (includi
 ```bash
 python predict.py
 ```
+## References
 
+- [U-Net: Semantic segmentation with PyTorch](https://github.com/milesial/Pytorch-UNet)
+- [PSPNet](https://github.com/leaderj1001/PSPNet)
+- [SegNet_PyTorch](https://github.com/vinceecws/SegNet_PyTorch)
+- [The easiest implementation of fully convolutional networks](https://github.com/pochih/FCN-pytorch)
 
 ## Contributing
 
