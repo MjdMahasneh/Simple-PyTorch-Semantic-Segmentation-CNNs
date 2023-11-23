@@ -1,5 +1,5 @@
 # Simple PyTorch implementation of Semantic Segmentation CNNs
-PyTorch Implementation of Semantic Segmentation CNNs: This repository features key architectures (from scratch) like **UNet**, **DeepLabv3+**, **SegNet**, **FCN**, and **PSPNet**. It's crafted to provide a solid foundation for Semantic Segmentation tasks using PyTorch.
+PyTorch Implementation of Semantic Segmentation CNNs: This repository features key architectures (from scratch) like **UNet**, **DeepLabv3+**, **SegNet**, **FCN**, and **PSPNet**. It's crafted to provide a solid foundation for Semantic Segmentation tasks using PyTorch. This implementation incorporates valuable contributions of the broader GitHub community, as detailed in the references section.
 
 ## Supported Architectures and Backbones
 
