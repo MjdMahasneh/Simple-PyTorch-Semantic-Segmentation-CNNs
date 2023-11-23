@@ -177,7 +177,10 @@ python predict.py
 
 Contributions to this repository are welcome. Feel free to submit a pull request or open an issue for any bugs or feature requests.
 
+
 ## License
 
-This project is licensed under the terms of the MIT license.
+This repository is a collection of various Semantic Segmentation CNN implementations, each potentially under its own license. We respect the original licenses of all included works. Users are advised to refer to the respective original sources (linked in the References section) for licensing information specific to each implementation.
+
+For any original contributions made in this repository, they are provided under the the terms of the MIT license.
 
